@@ -22,7 +22,6 @@ int	fill_the_line(char *s, char **line, int data)
 		if (*line != NULL)
 			*line = NULL;
 		*line = ft_strdup("");
-		s = NULL;
 		return (0);
 	}
 	else if (data == 0 && s[len] == '\0')
@@ -30,7 +29,6 @@ int	fill_the_line(char *s, char **line, int data)
 		if (*line != NULL)
 			*line = NULL;
 		*line = ft_strdup(s);
-		s = NULL;
 		return (0);
 	}
 	return (1);
