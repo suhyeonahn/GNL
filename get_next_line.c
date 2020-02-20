@@ -57,20 +57,14 @@ char	*keep_the_static(char *s)
 	}
 	return (s);
 }
-
-int	get_next_line(const int fd, char **line)
+char	*read_the_line(const int fd, char *s, int *data)
 {
-	static char	*s;
 	char	buf[BUFFER_SIZE + 1];
 	char	*tmp;
-	int		data;
-	int		result;
-
-	if (fd < 0 || line == NULL || BUFFER_SIZE == 0)
-		return (-1);
-	while ((data = read(fd, buf, BUFFER_SIZE)) > 0)
+	
+	while ((&data = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		buf[data] = '\0';
+		buf[&data] = '\0';
 		if (!s)
 			s = ft_strdup(buf);
 		else
@@ -82,6 +76,17 @@ int	get_next_line(const int fd, char **line)
 		if (ft_strchr(s, '\n'))
 			break ;
 	}
+	return(s);
+}
+int	get_next_line(const int fd, char **line)
+{
+	static char	*s;
+	int		data;
+	int		result;
+
+	if (fd < 0 || line == NULL || BUFFER_SIZE == 0)
+		return (-1);
+	s = read_the_line(fd, s, &data);
 	if (data < 0)
 		return (-1);
 	result = fill_the_line(s, line, data);
