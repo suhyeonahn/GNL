@@ -57,7 +57,7 @@ char	*keep_the_static(char *s)
 	}
 	return (s);
 }
-char	*read_the_line(const int fd, char *s, int *data)
+char	*read_next_line(const int fd, char *s, int *data)
 {
 	char	buf[BUFFER_SIZE + 1];
 	char	*tmp;
