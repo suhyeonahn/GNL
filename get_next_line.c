@@ -1,5 +1,4 @@
 #include "get_next_line.h"
-#include <stdio.h>
 
 int	fill_the_line(char *s, char **line, int data)
 {
@@ -44,13 +43,10 @@ char	*keep_the_static(char *s)
 		end++;
 	if (s[len] == '\n')
 	{
-		if ((end - len - 1) == 0)
+		if (((end - len - 1) == 0) && s))
 		{
-			if (s)
-			{
 				free(s);
 				s = NULL;
-			}
 		}
 		else
 		{
